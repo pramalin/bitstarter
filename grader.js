@@ -47,7 +47,6 @@ var loadChecks = function(checksfile) {
 };
 
 var checkUrl = function(url, checksfile) {
-    console.log('url: ' + url + ' checksfile: ' + checksfile);
     var checkHtmlString = function(htmlstring, checksfile) {
 	$ = cheerio.load(htmlstring);
 	var checks = loadChecks(checksfile).sort();
@@ -91,7 +90,6 @@ if(require.main == module) {
         .option('-u, --url <url> ', 'URL of the site')
         .parse(process.argv);
  
-   console.log(program.url);
     if (program.url) {
        checkUrl(program.url, program.checks);
     } else {
